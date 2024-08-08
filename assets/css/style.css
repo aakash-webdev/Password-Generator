@@ -1,0 +1,346 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  display: inline-block;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* ======================================== Common SCSS ends here ========================================= */
+.error {
+  color: red;
+}
+
+.pwd_generator_component.dark_mode {
+  background-color: #303136;
+  color: white;
+}
+.pwd_generator_component.dark_mode #password_display {
+  color: white;
+}
+.pwd_generator_component.dark_mode .pwd_display.error {
+  color: red;
+}
+
+/* -/-/-/-/-/-/-/-/-/-/- Main SCSS starts here -/-/-/-/-/-/-/-/-/-/- */
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url(../images/background.jpg);
+  background-position: center;
+  background-size: cover;
+}
+main .pwd_generator_component {
+  background-color: white;
+  color: #303136;
+  padding: 20px 40px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  border-radius: 10px;
+}
+main .pwd_generator_component .title {
+  text-align: center;
+  margin: 0 0 20px;
+}
+main .pwd_generator_component .dark_theme {
+  margin: 0 0 20px;
+  display: flex;
+  justify-content: center;
+  /* From Uiverse.io by satyamchaudharydev */
+  /* The switch - the box around the slider */
+  /* Hide default HTML checkbox */
+  /* The slider */
+}
+main .pwd_generator_component .dark_theme .switch {
+  display: block;
+  --width-of-switch: 3.2em;
+  --height-of-switch: 1.7em;
+  /* size of sliding icon -- sun and moon */
+  --size-of-icon: 1.2em;
+  /* it is like a inline-padding of switch */
+  --slider-offset: 0.3em;
+  position: relative;
+  width: var(--width-of-switch);
+  height: var(--height-of-switch);
+}
+main .pwd_generator_component .dark_theme .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+main .pwd_generator_component .dark_theme .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f4f4f5;
+  transition: 0.4s;
+  border: 1px solid #e5e7eb;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+main .pwd_generator_component .dark_theme .slider:before {
+  position: absolute;
+  content: "";
+  height: var(--size-of-icon, 1.4em);
+  width: var(--size-of-icon, 1.4em);
+  border-radius: 20px;
+  left: var(--slider-offset, 0.3em);
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+  transition: 0.4s;
+}
+main .pwd_generator_component .dark_theme input:checked + .slider {
+  background-color: #303136;
+}
+main .pwd_generator_component .dark_theme input:checked + .slider:before {
+  left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
+  background: #303136;
+  /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+}
+main .pwd_generator_component .pwd_display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  padding: 15px 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border: 5px solid rgba(229, 231, 235, 0.1725490196);
+  width: 500px;
+}
+main .pwd_generator_component .pwd_display #password_display {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "Source Code Pro", monospace;
+  color: grey;
+}
+main .pwd_generator_component .pwd_display .icon {
+  position: relative;
+}
+main .pwd_generator_component .pwd_display .icon i {
+  cursor: pointer;
+  font-size: 30px;
+  color: #6bbdf4;
+}
+main .pwd_generator_component .pwd_display .icon i:active {
+  color: #303136;
+}
+main .pwd_generator_component .pwd_display .icon .tooltip {
+  top: -10px;
+  left: -10px;
+  visibility: hidden;
+  position: absolute;
+  background: #6bbdf4;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+main .pwd_generator_component .pwd_display .icon:hover .tooltip {
+  visibility: visible;
+  animation: myAnim 0.5s ease 0s 1 normal forwards;
+}
+@keyframes myAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+}
+main .pwd_generator_component .pwd_settings .pwd_length {
+  margin: 30px 0;
+}
+main .pwd_generator_component .pwd_settings .pwd_length input[type=range] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 100%;
+  height: 15px;
+  background: #d3d3d3;
+  border-radius: 8px;
+}
+main .pwd_generator_component .pwd_settings .pwd_length input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.4274509804);
+  background: #6bbdf4;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+main .pwd_generator_component .pwd_settings .pwd_length input[type=range]::-webkit-slider-thumb:hover {
+  width: 33px;
+  height: 33px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 1px 60px 1px;
+}
+main .pwd_generator_component .pwd_settings .pwd_length .pwd_length_title {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+main .pwd_generator_component .pwd_settings .pwd_length .pwd_length_title #password_length_value {
+  font-weight: 700;
+  font-style: italic;
+  margin-left: 5px;
+  font-size: 20px;
+}
+main .pwd_generator_component .pwd_settings .pwd_options .options {
+  margin: 25px 0;
+  display: flex;
+  align-items: center;
+  /* From Uiverse.io by SelfMadeSystem */
+}
+main .pwd_generator_component .pwd_settings .pwd_options .options .checkbox {
+  cursor: pointer;
+  line-height: 12px;
+}
+main .pwd_generator_component .pwd_settings .pwd_options .options .checkbox input {
+  display: none;
+}
+main .pwd_generator_component .pwd_settings .pwd_options .options .checkbox svg {
+  overflow: visible;
+  font-size: 12px;
+}
+main .pwd_generator_component .pwd_settings .pwd_options .options .checkbox svg:hover .path {
+  stroke: rgba(0, 193, 0, 0.529);
+}
+main .pwd_generator_component .pwd_settings .pwd_options .options .checkbox svg .path {
+  fill: none;
+  stroke: #6bbdf4;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+  stroke-dasharray: 241 9999999;
+  stroke-dashoffset: 0;
+}
+main .pwd_generator_component .pwd_settings .pwd_options .options .checkbox input:checked ~ svg .path {
+  stroke-dasharray: 70.5096664429 9999999;
+  stroke-dashoffset: -262.2723388672;
+  stroke: rgb(0, 193, 0);
+}
+main .pwd_generator_component .pwd_settings .pwd_options .label {
+  margin-left: 15px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+}
+main .pwd_generator_component .pwd_settings .pwd_generate {
+  margin-top: 20px;
+  text-align: center;
+  /* From Uiverse.io by cssbuttons-io */
+}
+main .pwd_generator_component .pwd_settings .pwd_generate .btn {
+  position: relative;
+  font-size: 17px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1em 2.5em;
+  display: inline-block;
+  border-radius: 6em;
+  transition: all 0.2s;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  color: #303136;
+  background-color: #6bbdf4;
+  font-weight: bold;
+}
+main .pwd_generator_component .pwd_settings .pwd_generate .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+main .pwd_generator_component .pwd_settings .pwd_generate .btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+main .pwd_generator_component .pwd_settings .pwd_generate .btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+main .pwd_generator_component .pwd_settings .pwd_generate .btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+/* -/-/-/-/-/-/-/-/-/-/- Main SCSS ends here -/-/-/-/-/-/-/-/-/-/- */
+@media only screen and (max-width: 767px) {
+  main {
+    display: block;
+  }
+  main .pwd_generator_component {
+    border-radius: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  main .pwd_generator_component .pwd_display {
+    width: auto;
+  }
+  main .pwd_generator_component .pwd_display #password_display {
+    letter-spacing: 1px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  main .pwd_generator_component {
+    padding: 20px;
+  }
+  main .pwd_generator_component .pwd_display {
+    flex-direction: column;
+    padding: 8px 6px;
+  }
+  main .pwd_generator_component .pwd_display .icon {
+    padding: 0 5px;
+    margin: 29px 0 0;
+  }
+  main .pwd_generator_component .pwd_display .icon .tooltip {
+    left: -5px;
+    padding: 3px 4px;
+    font-size: 14px;
+  }
+  main .pwd_generator_component .pwd_display #password_display {
+    height: 25px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 424px) {
+  main .pwd_generator_component {
+    padding: 8px 25px;
+  }
+  main .pwd_generator_component .pwd_settings .pwd_options .label {
+    font-size: 18px;
+  }
+  main .pwd_generator_component .pwd_settings .pwd_generate .btn {
+    font-size: 16px;
+    padding: 0.8em 2em;
+  }
+}/*# sourceMappingURL=style.css.map */

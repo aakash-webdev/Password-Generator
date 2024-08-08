@@ -1,0 +1,404 @@
+//* ========================================== Common SCSS starts here ========================================= */
+
+// Variables
+$primary-color: #303136;
+$secondary-color: #6bbdf4;
+$primary-font: "Montserrat", sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  display: inline-block;
+}
+
+body {
+  font-family: $primary-font;
+}
+
+/* ======================================== Common SCSS ends here ========================================= */
+
+// Error
+.error {
+  color: red;
+}
+
+// Dark Mode
+.pwd_generator_component.dark_mode {
+  background-color: #303136;
+  color: white;
+  #password_display {
+    color: white;
+  }
+  .pwd_display.error {
+    color: red;
+  }
+}
+
+/* -/-/-/-/-/-/-/-/-/-/- Main SCSS starts here -/-/-/-/-/-/-/-/-/-/- */
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url(../images/background.jpg);
+  background-position: center;
+  background-size: cover;
+
+  .pwd_generator_component {
+    background-color: white;
+    color: $primary-color;
+    padding: 20px 40px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border-radius: 10px;
+
+    .title {
+      text-align: center;
+      margin: 0 0 20px;
+    }
+
+    .dark_theme {
+      margin: 0 0 20px;
+      display: flex;
+      justify-content: center;
+      /* From Uiverse.io by satyamchaudharydev */
+      /* The switch - the box around the slider */
+      .switch {
+        display: block;
+        --width-of-switch: 3.2em;
+        --height-of-switch: 1.7em;
+        /* size of sliding icon -- sun and moon */
+        --size-of-icon: 1.2em;
+        /* it is like a inline-padding of switch */
+        --slider-offset: 0.3em;
+        position: relative;
+        width: var(--width-of-switch);
+        height: var(--height-of-switch);
+      }
+
+      /* Hide default HTML checkbox */
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      /* The slider */
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #f4f4f5;
+        transition: 0.4s;
+        border: 1px solid #e5e7eb;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+          rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: var(--size-of-icon, 1.4em);
+        width: var(--size-of-icon, 1.4em);
+        border-radius: 20px;
+        left: var(--slider-offset, 0.3em);
+        top: 50%;
+        transform: translateY(-50%);
+        background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+        transition: 0.4s;
+      }
+
+      input:checked + .slider {
+        background-color: #303136;
+      }
+
+      input:checked + .slider:before {
+        left: calc(
+          100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em))
+        );
+        background: #303136;
+        /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
+        box-shadow: inset -3px -2px 5px -2px #8983f7,
+          inset -10px -4px 0 0 #a3dafb;
+      }
+    }
+
+    .pwd_display {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 5px;
+      padding: 15px 10px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      border: 5px solid #e5e7eb2c;
+      width: 500px;
+
+      #password_display {
+        font-size: 18px;
+        font-weight: 700;
+        font-family: "Source Code Pro", monospace;
+        color: grey;
+      }
+
+      .icon {
+        position: relative;
+
+        i {
+          cursor: pointer;
+          font-size: 30px;
+          color: $secondary-color;
+          &:active {
+            color: $primary-color;
+          }
+        }
+
+        .tooltip {
+          top: -10px;
+          left: -10px;
+          visibility: hidden;
+          position: absolute;
+          background: $secondary-color;
+          color: white;
+          padding: 5px 8px;
+          border-radius: 5px;
+        }
+
+        &:hover .tooltip {
+          visibility: visible;
+          animation: myAnim 0.5s ease 0s 1 normal forwards;
+          @keyframes myAnim {
+            0% {
+              opacity: 0;
+              transform: translateY(0);
+            }
+
+            100% {
+              opacity: 1;
+              transform: translateY(-20px);
+            }
+          }
+        }
+      }
+    }
+
+    .pwd_settings {
+      .pwd_length {
+        margin: 30px 0;
+
+        input[type="range"] {
+          appearance: none;
+          width: 100%;
+          height: 15px;
+          background: #d3d3d3;
+          border-radius: 8px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+          appearance: none;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          border: 2px solid #0000006d;
+          background: $secondary-color;
+          transition: 0.15s;
+
+          &:hover {
+            width: 33px;
+            height: 33px;
+            cursor: pointer;
+            box-shadow: rgba(0, 0, 0, 0.56) 0px 1px 60px 1px;
+          }
+        }
+        .pwd_length_title {
+          margin: 10px 0;
+          font-size: 18px;
+          font-weight: 600;
+
+          #password_length_value {
+            font-weight: 700;
+            font-style: italic;
+            margin-left: 5px;
+            font-size: 20px;
+          }
+        }
+      }
+
+      .pwd_options {
+        .options {
+          margin: 25px 0;
+          display: flex;
+          align-items: center;
+
+          /* From Uiverse.io by SelfMadeSystem */
+          .checkbox {
+            cursor: pointer;
+            line-height: 12px;
+
+            input {
+              display: none;
+            }
+
+            svg {
+              overflow: visible;
+              font-size: 12px;
+
+              &:hover .path {
+                stroke: rgba(0, 193, 0, 0.529);
+              }
+
+              .path {
+                fill: none;
+                stroke: $secondary-color;
+                stroke-width: 8;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                transition: stroke-dasharray 0.5s ease,
+                  stroke-dashoffset 0.5s ease;
+                stroke-dasharray: 241 9999999;
+                stroke-dashoffset: 0;
+              }
+            }
+
+            input:checked ~ svg .path {
+              stroke-dasharray: 70.5096664428711 9999999;
+              stroke-dashoffset: -262.2723388671875;
+              stroke: rgb(0, 193, 0);
+            }
+          }
+        }
+
+        .label {
+          margin-left: 15px;
+          font-size: 20px;
+          line-height: 24px;
+          font-weight: 600;
+        }
+      }
+
+      .pwd_generate {
+        margin-top: 20px;
+        text-align: center;
+
+        /* From Uiverse.io by cssbuttons-io */
+        .btn {
+          position: relative;
+          font-size: 17px;
+          text-transform: uppercase;
+          text-decoration: none;
+          padding: 1em 2.5em;
+          display: inline-block;
+          border-radius: 6em;
+          transition: all 0.2s;
+          border: none;
+          font-family: inherit;
+          font-weight: 500;
+          color: $primary-color;
+          background-color: $secondary-color;
+          font-weight: bold;
+        }
+
+        .btn:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn:active {
+          transform: translateY(-1px);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn::after {
+          content: "";
+          display: inline-block;
+          height: 100%;
+          width: 100%;
+          border-radius: 100px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          transition: all 0.4s;
+        }
+
+        .btn:hover::after {
+          transform: scaleX(1.4) scaleY(1.6);
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
+
+/* -/-/-/-/-/-/-/-/-/-/- Main SCSS ends here -/-/-/-/-/-/-/-/-/-/- */
+
+// -/-/-/-/-/-/-/-/-/-/- Media Queries -/-/-/-/-/-/-/-/-/-/- //
+
+//  Max-width: 767px : Min-width: 576px
+@media only screen and (max-width: 767px) {
+  main {
+    display: block;
+  }
+  main .pwd_generator_component {
+    border-radius: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  main .pwd_generator_component .pwd_display {
+    width: auto;
+    #password_display {
+      letter-spacing: 1px;
+    }
+  }
+}
+
+//  Max-width: 575px : Min-width: 425px
+@media only screen and (max-width: 575px) {
+  main .pwd_generator_component {
+    padding: 20px;
+  }
+  main .pwd_generator_component .pwd_display {
+    flex-direction: column;
+    padding: 8px 6px;
+  }
+  main .pwd_generator_component .pwd_display .icon {
+    padding: 0 5px;
+    margin: 29px 0 0;
+  }
+  main .pwd_generator_component .pwd_display .icon .tooltip {
+    left: -5px;
+    padding: 3px 4px;
+    font-size: 14px;
+  }
+  main .pwd_generator_component .pwd_display #password_display {
+    height: 25px;
+    text-align: center;
+  }
+}
+
+// Max-width: 424px : Min-width: 375px
+@media only screen and (max-width: 424px) {
+  main .pwd_generator_component {
+    padding: 8px 25px;
+  }
+  main .pwd_generator_component .pwd_settings .pwd_options .label {
+    font-size: 18px;
+  }
+  main .pwd_generator_component .pwd_settings .pwd_generate .btn {
+    font-size: 16px;
+    padding: 0.8em 2em;
+  }
+}

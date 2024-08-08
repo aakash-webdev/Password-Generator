@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+
+    <!--===== Google Fonts CDN =====-->
+    <!-- Montserrat Font CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Hind+Siliguri:wght@300;400;500;600;700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mukta:wght@200;300;400;500;600;700;800&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Source Code Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Hind+Siliguri:wght@300;400;500;600;700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mukta:wght@200;300;400;500;600;700;800&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+
+    <!--===== Font Awesome CDN =====-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="shortcut icon" href="assets/images/padlock.png" type="image/x-icon">
+
+    <!--===== SCSS =====-->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+
+    <!-- Main starts here -->
+    <main>
+
+        <!------------ Main Component ------------>
+        <div class="pwd_generator_component">
+
+            <div class="title">
+                <h1>Password Generator</h1>
+            </div>
+
+            <div class="dark_theme">
+                <!-- /* From Uiverse.io by satyamchaudharydev */ -->
+                <label class="switch">
+                    <input type="checkbox" id="dark_mode_checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="pwd_display">
+                <p id="password_display" class="reveal_text">Click on the Generate Button.</p>
+                <div class="icon">
+                    <i class="fa-solid fa-copy" id="copy_icon"></i>
+                    <span class="tooltip">Copy</span>
+                </div>
+            </div>
+
+            <div class="pwd_settings">
+
+                <!-- Password Length -->
+                <div class="pwd_length">
+                    <input type="range" min="1" max="25" step="1" value="10" name="length" id="password_length">
+                    <p class="pwd_length_title">
+                        Password Length: <span id="password_length_value">10</span>
+                    </p>
+                </div>
+
+                <!-- Password Options -->
+                <div class="pwd_options">
+
+                    <div class="pwd_uppercase options">
+
+                        <!-- /* From Uiverse.io by SelfMadeSystem */ -->
+                        <label class="container checkbox">
+                            <input type="checkbox" id="uppercase_check">
+                            <svg viewBox="0 0 64 64" height="2em" width="2em">
+                                <path
+                                    d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+                                    pathLength="575.0541381835938" class="path"></path>
+                            </svg>
+                        </label>
+
+                        <!-- Label -->
+                        <p class="label">Inlude Uppercase</p>
+
+                    </div>
+
+                    <div class="pwd_lowercase options">
+
+                        <!-- /* From Uiverse.io by SelfMadeSystem */ -->
+                        <label class="container checkbox">
+                            <input type="checkbox" id="lowercase_check">
+                            <svg viewBox="0 0 64 64" height="2em" width="2em">
+                                <path
+                                    d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+                                    pathLength="575.0541381835938" class="path"></path>
+                            </svg>
+                        </label>
+
+                        <!-- Label -->
+                        <p class="label">Inlude Lowercase</p>
+
+                    </div>
+
+                    <div class="pwd_numbers options">
+
+                        <!-- /* From Uiverse.io by SelfMadeSystem */ -->
+                        <label class="container checkbox">
+                            <input type="checkbox" id="numbers_check">
+                            <svg viewBox="0 0 64 64" height="2em" width="2em">
+                                <path
+                                    d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+                                    pathLength="575.0541381835938" class="path"></path>
+                            </svg>
+                        </label>
+
+                        <!-- Label -->
+                        <p class="label">Inlude Numbers</p>
+
+                    </div>
+
+                    <div class="pwd_symbols options">
+
+                        <!-- /* From Uiverse.io by SelfMadeSystem */ -->
+                        <label class="container checkbox">
+                            <input type="checkbox" id="symbols_check">
+                            <svg viewBox="0 0 64 64" height="2em" width="2em">
+                                <path
+                                    d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+                                    pathLength="575.0541381835938" class="path"></path>
+                            </svg>
+                        </label>
+
+                        <!-- Label -->
+                        <p class="label">Inlude Symbols</p>
+
+                    </div>
+
+                </div>
+
+                <!-- Generate Button -->
+                <div class="pwd_generate">
+                    <button id="btn" class="btn">
+                        Generate
+                    </button>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </main>
+    <!-- Main ends here -->
+
+
+    <!--==== Baffle CDN JS ====-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baffle.js/0.3.6/baffle.min.js"
+        integrity="sha512-hu3ldLmTd/44nwMB6AzYMToQzA29HyteyZCzl40oZzTcVnEi9aaozi8kRgh4hZDNkA7Ko4RpeDmV7QDQ1u2EuA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--===== JS =====-->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
