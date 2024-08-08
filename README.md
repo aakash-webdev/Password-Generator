@@ -46,3 +46,5 @@ Special thanks to the following resources and contributors that made this projec
 ### Mobile View
 ![image](https://github.com/user-attachments/assets/3a303530-6229-45aa-9205-d4868ac56f95)
 
+## Live Demo
+- https://aakash-webdev.github.io/Password-Generator/
