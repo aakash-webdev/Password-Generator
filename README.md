@@ -28,3 +28,21 @@ A simple and efficient password generator web application built using HTML, SASS
 - index.html: The main HTML file that structures the webapp.
 - style.scss: The SASS file for styling the webapp.
 - main.js: The JavaScript file that adds functionality to the webapp.
+
+## 🙏 Acknowledgements
+
+Special thanks to the following resources and contributors that made this project possible:
+
+- **[Font Awesome](https://fontawesome.com)**: For providing icons used throughout the webapp. Font Awesome's extensive icon library helps enhance the visual appeal and user experience of the application.
+- **[Google Fonts](https://fonts.google.com)**: For the beautiful fonts used in the project. Google Fonts provides a vast collection of fonts that are easy to integrate and add a professional touch to any web project.
+- **[Baffle.js](https://github.com/camwiegert/baffle)**: For the obfuscation effects used in the webapp. Baffle.js is a small JavaScript library that provides a fun and interesting way to animate text on the web.
+- **[SelfMadeSystem](https://github.com/SelfMadeSystem)**: For contributing UI components that enhance the functionality of the webapp via https://uiverse.io/.
+
+## 📱 Screenshots
+
+### Desktop View
+![image](https://github.com/user-attachments/assets/8327b691-7cf2-49be-996a-63a702e3b9cc)
+
+### Mobile View
+![image](https://github.com/user-attachments/assets/3a303530-6229-45aa-9205-d4868ac56f95)
+
