@@ -290,6 +290,19 @@ main .pwd_generator_component .pwd_settings .pwd_generate .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
+.github_copyright {
+        margin-top: 20px;
+        text-align: center;
+}
+a {
+          text-decoration: none;
+          font-weight: 700;
+          color: #296a96;
+}
+a:hover {
+            color: $secondary-color;
+}
+    
 
 /* -/-/-/-/-/-/-/-/-/-/- Main SCSS ends here -/-/-/-/-/-/-/-/-/-/- */
 @media only screen and (max-width: 767px) {
