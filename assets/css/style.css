@@ -343,4 +343,7 @@ main .pwd_generator_component .pwd_settings .pwd_generate .btn:hover::after {
     font-size: 16px;
     padding: 0.8em 2em;
   }
+  h1 {
+    font-size: 27px;
+  }
 }/*# sourceMappingURL=style.css.map */
